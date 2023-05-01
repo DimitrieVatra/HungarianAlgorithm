@@ -14,9 +14,9 @@ public static class ArrayExtensions
     /// </summary>
     /// <typeparam name="T">The type of elements in the array.</typeparam>
     /// <param name="array">The <see cref="Array"/> to square.</param>
+    /// <param name="defaultValue"></param>
     /// <returns>The <see cref="Array"/> squared.</returns>
-    public static T[,] SquareArray<T>(this T[][] array)
-        where T : class
+    public static T[,] SquareArray<T>(T[][] array, T defaultValue)
     {
         if (array == null)
             throw new ArgumentNullException(nameof(array));
@@ -36,7 +36,7 @@ public static class ArrayExtensions
                 }
                 catch (Exception)
                 {
-                    square[i, j] = null;
+                    square[i, j] = defaultValue;
                 }
             }
         }
